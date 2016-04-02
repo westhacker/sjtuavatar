@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Landed by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">上海交大120校友头像制作</a></h1>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<header>
+						    <div style="display: none"><img src="images/xiaochihuo.jpg"></div>
+						    <canvas id="myCanvas" width="280" height="280"></canvas>
+						    <img id="canvasImg" crossOrigin="anonymous" />
+						    <a id="tip"></a>
+						    <select id="color" >
+						      <option value="blue">蓝色</option>
+							  <option value="red">红色</option>
+							  <option value="green">绿色</option>
+							  <option value="grey">灰色</option>
+							  <option value="black">黑色</option>
+							  <option value="gold">金色</option>							  
+						    </select>
+						    <br>选择你的头像:
+							<input type="file" id="imageLoader" name="imageLoader"/>
+						    <canvas id="myCanvas2" width="280" height="280" style="display: none"></canvas>
+						    <script>
+						      function loadImages(sources, callback) {
+						        var images = {};
+						        var loadedImages = 0;
+						        var numImages = 0;
+						        // get num of sources
+						        for(var src in sources) {
+						          numImages++;
+						        }
+						        for(var src in sources) {
+						          images[src] = new Image();
+						          images[src].onload = function() {
+						            if(++loadedImages >= numImages) {
+						              callback(images);
+						            }
+						          };
+						          images[src].src = sources[src];
+						        }
+						      }
+						      var canvas = document.getElementById('myCanvas');
+						      var canvas2 = document.getElementById('myCanvas2');
+						      var canvas3 = document.getElementById('myCanvas3');
+						      var tip = document.getElementById('tip');
+						      var context = canvas.getContext('2d');
+						      var context2 = canvas2.getContext('2d');
+						      var context3 = canvas2.getContext('2d');
+						      var radius = 80;
+						      var offset = 0;
+						      var color = $("#color option:selected").val();
+						      var x = canvas.width / 2;
+						      var y = canvas.height / 2;
+						      context2.save();
+						      context2.beginPath();
+						      context2.arc(x, y, radius, 0, 2 * Math.PI, false);
+						      context2.clip();
+						      var sources = {
+						        blue: 'images/sjtubanner_'+$("#color option:selected").val()+'.png',
+						        black: 'images/sjtubanner_black.png',
+						        gold: 'images/sjtubanner_gold.png',
+						        green: 'images/sjtubanner_green.png',
+						        grey: 'images/sjtubanner_grey.png',
+						        red: 'images/sjtubanner_red.png',
+						      };
+
+					        $('#color').change(sources,function(images){
+						      	sources = {
+							        blue: 'images/sjtubanner_'+$("#color option:selected").val()+'.png',
+							        black: 'images/sjtubanner_black.png',
+							        gold: 'images/sjtubanner_gold.png',
+							        green: 'images/sjtubanner_green.png',
+							        grey: 'images/sjtubanner_grey.png',
+							        red: 'images/sjtubanner_red.png',
+						        };
+					      		
+					      		context.clearRect(0, 0, 280, 280);
+
+							    loadImages(sources, function(images) {
+							        context.drawImage(images.blue, 0, 0, 280, 280);
+							    });
+
+						        context.drawImage(canvas2,0,0);
+
+					      		document.getElementById('canvasImg').onload = function(){
+								    document.getElementById('canvasImg').src = canvas.toDataURL('image/jpg');
+								    document.getElementById('canvasImg').style.display = 'block';
+							    }
+
+					      	});
+
+
+						      loadImages(sources, function(images) {
+						        context.drawImage(images.blue, 0, 0, 280, 280);
+						      });
+
+						      var imageLoader = document.getElementById('imageLoader');
+						      imageLoader.addEventListener('change', handleImage, false);
+
+						      function handleImage(e){
+							    var reader = new FileReader();
+							    reader.onload = function(event){
+							        var img = new Image();
+							        img.onload = function(){
+							            //canvas.width = img.width;
+							            //canvas.height = img.height;
+						                context.clearRect(0, 0, 280, 280);
+							            loadImages(sources, function(images) {
+						  			        context2.drawImage(img,0,0,280,280);
+							                var newImg=new Image();
+							                newImg.src = canvas2.toDataURL('image/png');
+							                context.drawImage(canvas2,0,0);
+							                context.drawImage(images.blue, 0, 0, 280, 280);
+							                document.getElementById('canvasImg').src = canvas.toDataURL("image/jpeg");
+									    });
+									    
+							        }
+							        img.src = event.target.result;
+							    }
+							    reader.readAsDataURL(e.target.files[0]);
+						      	
+						        document.getElementById('canvasImg').style.display = 'block';
+							    tip.innerHTML = "长按上面的图片以保存！"
+
+						      // set canvasImg image src to dataURL
+						      // so it can be saved as an image
+						      
+							  }
+
+						    </script>
+						    </header>
+					</div>
+				</section>
+
+			
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="https://www.facebook.com/bin5452" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://fr.linkedin.com/in/wanghongbin" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; APPinAIR. All rights reserved.</li><li>Author: <a href="http://appinair.com">APPinAIR</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+
+
+	</body>
+</html>
