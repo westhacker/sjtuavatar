@@ -46,7 +46,7 @@
 						    </select>
 						    <br>选择你的头像:
 							<input type="file" id="imageLoader" name="imageLoader"/>
-						    <canvas id="myCanvas2" width="280" height="280" style="display: none"></canvas>
+						    <canvas id="myCanvas2" width="160" height="160" style="display: none"></canvas>
 						    <canvas id="myCanvas3" width="280" height="280" style="display: none"></canvas>
 						    <script>
 						      function loadImages(sources, callback) {
@@ -77,8 +77,8 @@
 						      var radius = 80;
 						      var offset = 0;
 						      var color = $("#color option:selected").val();
-						      var x = canvas.width / 2;
-						      var y = canvas.height / 2;
+						      var x = canvas2.width / 2;
+						      var y = canvas2.height / 2;
 						      context2.save();
 						      context2.beginPath();
 						      context2.arc(x, y, radius, 0, 2 * Math.PI, false);
@@ -97,7 +97,7 @@
 				                context.fillRect(0, 0, 280, 280);
 							    loadImages(sources, function(images) {
 							        context.drawImage(images.blue, 0, 0, 280, 280);
-							        context.drawImage(canvas2,0,0);
+							        context.drawImage(canvas2,60,60);
 							        if(document.getElementById('canvasImg').style.display == 'block'){
 							        	document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
 							        	$('#mainc').hide();
@@ -126,12 +126,12 @@
 							            //canvas.height = img.height;
 						                context.clearRect(0, 0, 280, 280);
 							            loadImages(sources, function(images) {
-						  			        context2.drawImage(img,0,0,280,280);
+						  			        context2.drawImage(img,0,0,160,160);
 						  			        context.fillStyle = 'white';
 				                			context.fillRect(0, 0, 280, 280);
 							                //var newImg=new Image();
 							                //newImg.src = canvas2.toDataURL('image/png');
-							                context.drawImage(canvas2,0,0);
+							                context.drawImage(canvas2,60,60,160,160);
 							                context.drawImage(images.blue, 0, 0, 280, 280);
 							                document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
 							  	            document.getElementById('canvasImg').style.display = 'block';
