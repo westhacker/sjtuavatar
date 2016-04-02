@@ -33,8 +33,11 @@
 						<header>
 						    <div style="display: none"><img src="images/xiaochihuo.jpg"></div>
 						    <canvas id="myCanvas" width="280" height="280"></canvas>
-						    <img id="canvasImg" crossOrigin="anonymous" />
+						    <br>
 						    <a id="tip"></a>
+						    <br>
+						    <img id="canvasImg" crossOrigin="anonymous" />
+						    <br>
 						    <select id="color" >
 						      <option value="blue">蓝色</option>
 							  <option value="red">红色</option>
@@ -46,6 +49,7 @@
 						    <br>选择你的头像:
 							<input type="file" id="imageLoader" name="imageLoader"/>
 						    <canvas id="myCanvas2" width="280" height="280" style="display: none"></canvas>
+						    <canvas id="myCanvas3" width="280" height="280" style="display: none"></canvas>
 						    <script>
 						      function loadImages(sources, callback) {
 						        var images = {};
@@ -82,36 +86,24 @@
 						      context2.arc(x, y, radius, 0, 2 * Math.PI, false);
 						      context2.clip();
 						      var sources = {
-						        blue: 'images/sjtubanner_'+$("#color option:selected").val()+'.png',
-						        black: 'images/sjtubanner_black.png',
-						        gold: 'images/sjtubanner_gold.png',
-						        green: 'images/sjtubanner_green.png',
-						        grey: 'images/sjtubanner_grey.png',
-						        red: 'images/sjtubanner_red.png',
+						        blue: 'images/sjtubanner_'+$("#color option:selected").val()+'.png'
 						      };
 
 					        $('#color').change(sources,function(images){
 						      	sources = {
-							        blue: 'images/sjtubanner_'+$("#color option:selected").val()+'.png',
-							        black: 'images/sjtubanner_black.png',
-							        gold: 'images/sjtubanner_gold.png',
-							        green: 'images/sjtubanner_green.png',
-							        grey: 'images/sjtubanner_grey.png',
-							        red: 'images/sjtubanner_red.png',
+							        blue: 'images/sjtubanner_'+$("#color option:selected").val()+'.png'
 						        };
 					      		
 					      		context.clearRect(0, 0, 280, 280);
-
+					      		context.fillStyle = 'white';
+				                context.fillRect(0, 0, 280, 280);
 							    loadImages(sources, function(images) {
 							        context.drawImage(images.blue, 0, 0, 280, 280);
+							        context.drawImage(canvas2,0,0);
+							        document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
+							  	    document.getElementById('canvasImg').style.display = 'block';
+							  	    //tip.innerHTML = "长按下面的图片以保存！"
 							    });
-
-						        context.drawImage(canvas2,0,0);
-
-					      		document.getElementById('canvasImg').onload = function(){
-								    document.getElementById('canvasImg').src = canvas.toDataURL('image/jpg');
-								    document.getElementById('canvasImg').style.display = 'block';
-							    }
 
 					      	});
 
@@ -133,23 +125,21 @@
 						                context.clearRect(0, 0, 280, 280);
 							            loadImages(sources, function(images) {
 						  			        context2.drawImage(img,0,0,280,280);
-							                var newImg=new Image();
-							                newImg.src = canvas2.toDataURL('image/png');
+						  			        context.fillStyle = 'white';
+				                			context.fillRect(0, 0, 280, 280);
+							                //var newImg=new Image();
+							                //newImg.src = canvas2.toDataURL('image/png');
 							                context.drawImage(canvas2,0,0);
 							                context.drawImage(images.blue, 0, 0, 280, 280);
-							                document.getElementById('canvasImg').src = canvas.toDataURL("image/jpeg");
+							                document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
+							  	            document.getElementById('canvasImg').style.display = 'block';
+							  	            tip.innerHTML = "长按下面的图片以保存！"
 									    });
 									    
 							        }
 							        img.src = event.target.result;
 							    }
 							    reader.readAsDataURL(e.target.files[0]);
-						      	
-						        document.getElementById('canvasImg').style.display = 'block';
-							    tip.innerHTML = "长按上面的图片以保存！"
-
-						      // set canvasImg image src to dataURL
-						      // so it can be saved as an image
 						      
 							  }
 
