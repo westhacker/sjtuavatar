@@ -32,7 +32,7 @@
 					<div class="content">
 						<header>
 						    <div style="display: none"><img src="images/xiaochihuo.jpg"></div>
-						    <canvas id="myCanvas" width="280" height="280"></canvas>
+						    <div id="mainc"><canvas id="myCanvas" width="280" height="280"></canvas></div>
 						    <br>
 						    <a id="tip"></a>
 						    <br>
@@ -100,8 +100,12 @@
 							    loadImages(sources, function(images) {
 							        context.drawImage(images.blue, 0, 0, 280, 280);
 							        context.drawImage(canvas2,0,0);
-							        document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
-							  	    document.getElementById('canvasImg').style.display = 'block';
+							        if(document.getElementById('canvasImg').style.display == 'block'){
+							        	document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
+							        	$('#mainc').hide();
+							        }
+							        
+							  	    //document.getElementById('canvasImg').style.display = 'block';
 							  	    //tip.innerHTML = "长按下面的图片以保存！"
 							    });
 
@@ -133,7 +137,8 @@
 							                context.drawImage(images.blue, 0, 0, 280, 280);
 							                document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
 							  	            document.getElementById('canvasImg').style.display = 'block';
-							  	            tip.innerHTML = "长按下面的图片以保存！"
+							  	            $('#mainc').hide();
+							  	            tip.innerHTML = "提示：长按下面的图片以保存！"
 									    });
 									    
 							        }
