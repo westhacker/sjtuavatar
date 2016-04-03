@@ -99,7 +99,7 @@ A mobile template by HTML5UP is used in this app.
   ```javascript
     document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
   ```
-     * Logo Color Selector
+* Logo Color Selector
   ```javascript
     $('#color').change(sources, function (images) {
         sources = {
