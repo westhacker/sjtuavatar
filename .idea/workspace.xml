@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a63d7b9a-bf39-4f6f-a13e-3050dd0b5a74" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/elements.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic05.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/pic08.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/left-sidebar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/no-sidebar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/right-sidebar.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="a63d7b9a-bf39-4f6f-a13e-3050dd0b5a74" name="Default" comment="" />
     <ignored path="sjtuavatar.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
