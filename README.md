@@ -34,7 +34,7 @@ A mobile template by HTML5UP is used in this app.
         }
     }
   ```
-  * Clip a circle area in canvas2
+* Clip a circle area in canvas2
   ```javascript
     var canvas2 = document.getElementById('myCanvas2');
     var context2 = canvas2.getContext('2d');
@@ -48,7 +48,7 @@ A mobile template by HTML5UP is used in this app.
     context2.clip();
   ```
   
-    * Handle the image upload event 
+* Handle the image upload event 
   ```javascript
     function handleImage(e) 
     {
@@ -59,7 +59,7 @@ A mobile template by HTML5UP is used in this app.
         reader.readAsDataURL(e.target.files[0]);
     }
   ```
-      * Paint the uploaded image into the canvas2
+* Paint the uploaded image into the canvas2
   ```javascript
     var img = new Image();
     img.onload = function () 
@@ -81,7 +81,7 @@ A mobile template by HTML5UP is used in this app.
     }
   ```
   
- * Paint the canvas2 into the canvas, and add sjtu logo
+* Paint the canvas2 into the canvas, and add sjtu logo
   ```javascript
     context.clearRect(0, 0, 280, 280);
     loadImages(sources, function (images) {
@@ -95,7 +95,7 @@ A mobile template by HTML5UP is used in this app.
     });
   ```
   
-   * Output from canvas to png
+* Output from canvas to png
   ```javascript
     document.getElementById('canvasImg').src = canvas.toDataURL("image/png");
   ```
