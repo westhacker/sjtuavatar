@@ -3,7 +3,7 @@ html5 canvas generate avatar output image
 
 ## Introduction
 This application is developed to celebrate the 120th birthday of Shanghai Jiao Tong University. For SJTUers, they can make their own sjtu-avatar through this app.
-![That's all Folks!](http://images.google.fr/imgres?imgurl=http%3A%2F%2Fsmd.sjtu.edu.cn%2Ffile%2Fdownload%2Fid%2F55a06e51e0ea3cde38e9f375&imgrefurl=http%3A%2F%2Fsmd.sjtu.edu.cn%2Fnews%2Fd%2Fid%2F56&h=914&w=826&tbnid=NTzDzYggcCsP-M%3A&docid=jz7D5XlTqn6e9M&ei=oCwBV6jhN8yzae_QrPgJ&tbm=isch&iact=rc&uact=3&dur=308&page=1&start=0&ndsp=20&ved=0ahUKEwiosenZ2vLLAhXMWRoKHW8oC58QMwgwKAowCg&safe=off)
+![I love SJTU!](http://smd.sjtu.edu.cn/file/download/id/55a06e51e0ea3cde38e9f375)
 
 ## Solution
 * JQuery
