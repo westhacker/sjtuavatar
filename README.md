@@ -1,5 +1,4 @@
 # sjtuavatar
-html5 canvas generate avatar output image
 Live demo: http://www.appinair.com/sjtuavatar/
 
 ## Introduction
