@@ -1,5 +1,6 @@
 # sjtuavatar
 html5 canvas generate avatar output image
+Live demo: http://www.appinair.com/sjtuavatar/
 
 ## Introduction
 This application is developed to celebrate the 120th birthday of Shanghai Jiao Tong University. For SJTUers, they can make their own sjtu-avatar through this app.
