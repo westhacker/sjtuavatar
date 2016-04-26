@@ -117,3 +117,11 @@ A mobile template by HTML5UP is used in this app.
         //to do : repaint and generate image
     });
   ```
+  
+License
+----
+
+MIT
+
+
+**Free Software, Hell Yeah!**
